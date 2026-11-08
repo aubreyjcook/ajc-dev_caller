@@ -1,0 +1,10 @@
+# Build-script approval. esbuild's postinstall spawns a child process to verify
+# its binary; that binary is shipped separately via an optional dependency, so
+# the postinstall is unnecessary. Deny it explicitly to keep installs clean.
+allowBuilds:
+  esbuild: false
+
+# Use a flat node_modules (npm-style) instead of pnpm's symlinked virtual
+# store. Windows junctions for optional platform packages (e.g. @ngrok/ngrok's
+# native binary) do not resolve reliably in some constrained environments.
+nodeLinker: hoisted

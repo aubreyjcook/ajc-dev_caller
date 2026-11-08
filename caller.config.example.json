@@ -1,0 +1,26 @@
+{
+  "agent": {
+    "greeting": "Hello, this is an automated assistant.",
+    "systemPromptTemplate": "You are a phone assistant making a call on a user's behalf.\n\nYour goal for this call is: {{goal}}\n\nRules:\n- Be concise, natural, and friendly.\n- Ask at most one question per turn.\n- If you do not understand, ask the callee to repeat themselves.\n- Never reveal that you are an AI unless asked directly.\n- End the call politely once the goal is complete.",
+    "maxTurns": 20,
+    "silenceTimeoutMs": 1500
+  },
+  "speech": {
+    "stt": {
+      "provider": "deepgram",
+      "model": "nova-2-phonecall"
+    },
+    "tts": {
+      "provider": "deepgram",
+      "voice": "asteria"
+    }
+  },
+  "llm": {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "temperature": 0.7
+  },
+  "tunnel": {
+    "provider": "ngrok"
+  }
+}
